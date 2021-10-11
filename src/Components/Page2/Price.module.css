@@ -1,0 +1,26 @@
+.priceBox {
+  margin-top: 3.3rem;
+}
+
+.price {
+  padding: 0.8rem;
+  display: block;
+  color: black;
+  font-weight: 700;
+  padding-left: 0.5rem;
+  font-size: 1.4rem;
+
+  margin-top: 1.2rem;
+}
+
+@media screen and (max-width: 400px) {
+  .price {
+    font-size: 0.6rem;
+    font-weight: 500;
+    margin-top: 1.8rem;
+  }
+
+  .priceBox {
+    margin-top: 3.8rem;
+  }
+}

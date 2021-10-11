@@ -1,0 +1,37 @@
+.page3 {
+  background-color: #450077;
+  text-align: start;
+  padding: 1rem 4rem 0rem 2rem;
+}
+
+.mainHeading {
+  color: #f1defd;
+  font-size: 3.5rem;
+  padding-top: 3rem;
+}
+
+.subHeading {
+  color: #f1defd;
+}
+
+.mainContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 2fr;
+}
+
+.subContainer {
+  color: #d6d4d4c2;
+  font-size: 1.3rem;
+}
+
+.subContainer:not(:last-child) {
+  padding-right: 10rem;
+}
+
+
+.img{
+padding-top: 3rem;    
+width: 85rem;
+
+}

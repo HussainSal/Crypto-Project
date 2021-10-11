@@ -1,0 +1,42 @@
+.changeBox {
+    margin-top: 3.3rem;
+  }
+  
+  .change{
+    padding: 0.8rem;
+    display: block;
+    color: #2fbb83;
+    font-weight: 400;
+    padding-left: 0.5rem;
+    font-size: 1.4rem;
+    
+    margin-top: 1.2rem;
+  }
+
+  .changes{
+    padding: 0.8rem ;
+    display: block;
+    color: red;
+    font-weight: 400;
+    padding-left: 0.5rem;
+    font-size: 1.4rem;
+    
+    margin-top: 1.2rem;
+
+  }
+
+  @media screen and (max-width:400px) {
+
+    .changeBox {
+      margin-top: 3.6rem;
+    }
+
+    .changes{
+      font-size: .8rem;
+      padding: 0.8rem .4rem ;
+      margin-top: 1.5rem;
+
+    }
+    
+  }
+  

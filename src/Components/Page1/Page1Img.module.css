@@ -1,0 +1,41 @@
+.imgBox {
+  width: 60%;
+  height: 100%;
+  background-repeat: no-repeat;
+}
+
+.img {
+  height: 100%;
+  width: 100%;
+  opacity: 0.7;
+}
+
+@media only screen and (max-width: 900px) {
+  .img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+
+@media only screen and (max-width: 1050px) {
+    .img {
+      height: 90%;
+      width: 100%;
+      /* padding-right: 10rem; */
+    }
+    .imgBox {
+        width: 120%;
+        height: 100%;
+        background-repeat: no-repeat;
+      }
+  }
+
+  @media only screen and (max-width: 415px) {
+    .img {
+        display: none;
+    }
+    .imgBox {
+        display: none;
+      }
+  }

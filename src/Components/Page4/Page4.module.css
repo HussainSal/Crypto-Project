@@ -1,0 +1,36 @@
+.page4 {
+  background-image: linear-gradient(to bottom, #6002b1 60%, #af3a86 85%);
+  padding: 4rem 0rem 1rem 0rem;
+  /* #AF3A86 */
+}
+
+.mainHeading {
+  text-align: center;
+  color: white;
+}
+
+.bttn {
+  font-weight: 700;
+  margin: 0.8rem 1.2rem;
+  border: solid 1px white;
+  color: white;
+  border-radius: 25px;
+  background-color: transparent;
+  padding: 0.6rem 2.4rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.signup {
+  /* padding: 5rem; */
+  background-image: linear-gradient(to right bottom, #fe8b79, #fdb41b);
+  border: none;
+}
+
+.bttn:hover {
+  box-shadow: 0rem 0.8rem 0.6rem rgba(0, 0, 0, 0.4);
+}
+
+.bttn:active {
+  box-shadow: 0rem 0.4rem 0.8rem rgba(0, 0, 0, 0.5);
+}

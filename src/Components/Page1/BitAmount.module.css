@@ -1,0 +1,135 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-end;
+  width: 40rem;
+}
+
+.amount {
+  width: 7rem;
+}
+
+.btc {
+  width: 6rem;
+}
+
+.input {
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  padding: 1rem 0.5rem 0.5rem 1rem;
+  /* display: inline-block; */
+  margin-top: 0.5rem;
+}
+
+.label {
+  color: white;
+  position: relative;
+  top: 25%;
+}
+
+.bttn {
+  display: inline-block;
+  font-weight: 700;
+  margin: 4rem 1.2rem;
+  border: solid 1px white;
+  color: white;
+  border-radius: 25px;
+  background-color: transparent;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.bttn:hover {
+  box-shadow: 0rem 0.8rem 0.6rem rgba(0, 0, 0, 0.4);
+}
+
+.bttn:active {
+  box-shadow: 0rem 0.4rem 0.8rem rgba(0, 0, 0, 0.5);
+}
+
+.signup {
+  /* padding: 5rem; */
+  background-image: linear-gradient(to right bottom, #fe8b79, #fdb41b);
+  border: none;
+  margin-top: 4.8rem;
+}
+
+::-webkit-input-placeholder {
+  color: rgb(68, 67, 67);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .container {
+    width: 10rem;
+    flex-direction: column;
+  }
+
+  .signup {
+    margin: 2rem 0rem;
+    width: 12rem;
+  }
+
+  .amount {
+    margin: 1rem 0rem;
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  .input {
+    padding: 1rem 1rem 0.5rem 1rem;
+    margin-top: 0.5rem;
+  }
+
+  
+  .label {
+    margin-top: 2rem;
+    color: white;
+    position: relative;
+    top: 25%;
+  }
+
+  .container {
+    width: 10rem;
+    /* display: flex; */
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .signup {
+    margin: 2rem 0rem;
+    width: 12rem;
+  }
+}
+
+
+@media only screen and (max-width: 415px) {
+    .input {
+      padding: 1rem 1rem 0.5rem 1rem;
+      margin-top: 0.5rem;
+      width: 8rem;
+    }
+  
+    
+    .label {
+      margin-top: 2rem;
+      color: white;
+      position: relative;
+      top: 25%;
+    }
+  
+    .container {
+      width: 10rem;
+      flex-direction: column;
+      /* margin: 0 auto; */
+    }
+  
+    .signup {
+      margin: 2rem 0rem;
+      width: 10rem;
+    }
+  }
+
+

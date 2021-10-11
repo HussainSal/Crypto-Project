@@ -1,0 +1,102 @@
+.textBox {
+  width: 50vw;
+  /* height: 5rem; */
+  margin-top: 5rem;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-bottom: 4rem;
+}
+
+.topic {
+  margin: 0;
+  font-size: 5rem;
+  font-weight: 500;
+  line-height: 120%;
+  color: white;
+  padding-bottom: 2rem;
+}
+
+.subTopic {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 400;
+  color: darkgrey;
+}
+
+.mainBox {
+  text-align: start;
+  padding-left: 4rem;
+}
+
+@media only screen and (max-width: 900px) {
+  .mainBox {
+    text-align: start;
+    padding-left: 2rem;
+  }
+
+  .textBox {
+    margin-bottom: 4rem;
+  }
+
+  .topic {
+    /* padding-left: .5rem; */
+    font-size: 2.5rem;
+    font-weight: 400;
+    padding-bottom: 1rem;
+  }
+
+  .subTopic {
+    font-size: 1rem;
+    font-weight: 300;
+    color: darkgrey;
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  .mainBox {
+    text-align: start;
+    padding-left: 1rem;
+    width: 51%;
+  }
+
+  .topic {
+    /* padding-left: .5rem; */
+    font-size: 2rem;
+    font-weight: 400;
+    padding-bottom: 1rem;
+  }
+
+  .subTopic {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: darkgrey;
+  }
+}
+
+@media only screen and (max-width: 415px ) {
+  .textBox {
+    margin-bottom: 2rem;
+  }
+
+  .mainBox {
+    text-align: start;
+    padding-left: 0rem;
+    width: 100%;
+  }
+
+  .topic {
+    font-size: 2.5rem;
+    font-weight: 400;
+    padding-bottom: 1rem;
+    width: 100vw;
+    text-align: center;
+  }
+
+  .subTopic {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: white;
+    width: 100vw;
+    text-align: center;
+  }
+}

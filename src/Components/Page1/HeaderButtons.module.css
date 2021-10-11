@@ -1,0 +1,98 @@
+.container {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 0.6rem;
+  /* position: fixed; */
+}
+
+.bttn {
+  font-weight: 700;
+  margin: 0.8rem 1.2rem;
+  border: solid 1px white;
+  color: white;
+  border-radius: 25px;
+  background-color: transparent;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  /* position: fixed; */
+}
+
+.bttn:hover {
+  box-shadow: 0rem 0.8rem 0.6rem rgba(0, 0, 0, 0.4);
+}
+
+.bttn:active {
+  box-shadow: 0rem 0.4rem 0.8rem rgba(0, 0, 0, 0.5);
+}
+
+.nav {
+  /* position: fixed; */
+  padding-left: 1rem;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  width: 50vw;
+  transition: all 0.3s;
+}
+
+.para:hover {
+  cursor: pointer;
+  text-shadow: 0rem 1rem 0.6rem rgba(0, 0, 0, 0.6);
+}
+
+.para:active {
+  text-shadow: 0rem 0.6rem 0.8rem rgba(0, 0, 0, 0.8);
+}
+
+.signup {
+  /* padding: 5rem; */
+  background-image: linear-gradient(to right bottom, #fe8b79, #fdb41b);
+  border: none;
+  margin-right: 6rem;
+}
+
+@media only screen and (max-width: 900px) {
+  .nav {
+    padding-left: 3rem;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    width: 50vw;
+    transition: all 0.3s;
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  .nav {
+    display: none;
+  }
+
+  .container {
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .bttn {
+    font-weight: 700;
+    margin: 0.8rem 1.2rem;
+    border: solid 1px white;
+    color: white;
+    border-radius: 25px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 8rem;
+
+  }
+
+ 
+  
+}
+
+/* right side yellow #FDB41B
+left side yellow #FE8B79 */

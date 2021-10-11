@@ -1,0 +1,56 @@
+    .box{
+        display: grid;
+        grid-template-columns: 1;
+        grid-template-rows: 7;
+        /* margin-top: 1rem; */
+        padding-top: .3rem;
+        text-align: start;
+    
+    }
+
+  .bttn{
+    padding-top: .4rem;
+    font-weight: 700;
+    margin-top: 1.9rem;
+    border: solid 1px white;
+    color: white;
+    border-radius: 25px;
+    background-color: #8439CC;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 6rem;
+    padding: 1rem;
+
+  }
+
+  .signup {
+    /* padding: 5rem; */
+    background-image: linear-gradient(to right bottom, #fe8b79, #fdb41b);
+    border: none;
+  }
+
+  .bttn:hover {
+    box-shadow: 0rem 0.8rem 0.6rem rgba(0, 0, 0, 0.4);
+  }
+  
+  .bttn:active {
+    box-shadow: 0rem 0.4rem 0.8rem rgba(0, 0, 0, 0.5);
+  }
+
+  @media only screen and (max-width: 400px){
+
+    .box{
+      text-align: end;
+      padding-left: .8rem;
+      padding-top: .8rem;
+      margin-top: 1.1rem;
+    }
+
+    .bttn{
+      width: 4rem;
+      padding: .5em;
+      margin-top: 2.3rem;
+
+    }
+
+  }
