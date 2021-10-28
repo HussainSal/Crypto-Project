@@ -19,12 +19,12 @@
 
   background-color: #3c1161;
   border-radius: 25px;
-  margin: 8rem 0rem 2rem 30rem;
+  margin: 4rem 0rem 2rem 30rem;
 }
 
 .input {
   display: block;
-  width: 80%;
+  width: 50%;
   border-radius: 25px;
   border: none;
   outline: none;

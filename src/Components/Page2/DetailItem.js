@@ -1,21 +1,16 @@
-import classes from "./Login.module.css";
+import classes from "./DetailItem.module.css";
 import { useDispatch } from "react-redux";
-import { authActions } from "../Store/Index";
+import { detalActions } from "../../Store/Index";
 
-const Login = () => {
+
+const DetailItem = (props) => {
   const dispatch = useDispatch();
 
-  const submitHandler = (e) => {
-    e.preventDefault();
 
-    dispatch(authActions.logout());
-  };
-
- 
 
   return (
     <div className={classes.overlay}>
-      <form className={classes.form} onSubmit={submitHandler}>
+      <form className={classes.form} >
         <input
           className={classes.input}
           type="email"
@@ -35,4 +30,5 @@ const Login = () => {
   );
 };
 
-export default Login;
+
+export default DetailItem;

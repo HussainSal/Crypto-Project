@@ -35,16 +35,17 @@
   display: flex;
   justify-content: space-around;
   width: 50vw;
-  transition: all 0.3s;
+  transition: all .3s;
 }
 
 .para:hover {
   cursor: pointer;
-  text-shadow: 0rem 1rem 0.6rem rgba(0, 0, 0, 0.6);
+  /* text-shadow: 0rem 1rem 0.6rem rgba(0, 0, 0, 0.6); */
 }
 
 .para:active {
   text-shadow: 0rem 0.6rem 0.8rem rgba(0, 0, 0, 0.8);
+  transform: scale(1.2);
 }
 
 .signup {

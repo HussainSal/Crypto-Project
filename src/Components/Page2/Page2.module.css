@@ -5,7 +5,6 @@
   overflow-x: hidden;
   box-sizing: border-box;
   /* background-color: #440178; */
-  
 }
 
 .mainContainer {
@@ -17,7 +16,6 @@
   text-align: start;
   /* padding-top: 6rem; */
 }
-
 
 .bttn {
   padding-top: 0.4rem;
@@ -41,8 +39,7 @@
   box-shadow: 0rem 0.4rem 0.8rem rgba(0, 0, 0, 0.5);
 }
 
-
-.hide{
+.hide {
   display: none;
 }
 
@@ -53,13 +50,11 @@
 }
 
 @media only screen and (max-width: 400px) {
-
-    .box{
-        padding-left: .6rem;
-        padding-right: 1rem;
-        overflow-x: hidden;
-    }
-    
+  .box {
+    padding-left: 0.6rem;
+    padding-right: 1rem;
+    overflow-x: hidden;
+  }
 
   .mainContainer {
     grid-template-columns: 97px repeat(3, 1fr);

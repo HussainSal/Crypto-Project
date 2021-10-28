@@ -1,7 +1,21 @@
 import classes from "./HeaderButtons.module.css";
-// import Button from "@material-ui/core/Button";
+
+import { useDispatch } from "react-redux";
+import { authActions } from "../../Store/Index";
 
 const HeaderButtons = () => {
+  const dispatch = useDispatch();
+
+  const loginHandler = (e) => {
+    e.preventDefault();
+    dispatch(authActions.login());
+  };
+
+  const signupHandler = (e) => {
+    e.preventDefault();
+    dispatch(authActions.signup());
+  };
+
   const homeHandler = () => {
     document.getElementById("home").scrollIntoView({ behavior: "smooth" });
   };
@@ -27,7 +41,7 @@ const HeaderButtons = () => {
         <p onClick={marketHandler} className={classes.para}>
           Market
         </p>
-        
+
         <p onClick={journeyHandler} className={classes.para}>
           Steps involved
         </p>
@@ -36,8 +50,14 @@ const HeaderButtons = () => {
         </p>
       </div>
       <div>
-        <button className={classes.bttn}> Login </button>
-        <button className={`${classes.bttn} ${classes.signup}`}>
+        <button onClick={loginHandler} className={classes.bttn}>
+          {" "}
+          Login{" "}
+        </button>
+        <button
+          onClick={signupHandler}
+          className={`${classes.bttn} ${classes.signup}`}
+        >
           {" "}
           Sign Up
         </button>

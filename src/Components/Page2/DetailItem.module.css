@@ -1,0 +1,61 @@
+.overlay {
+    background-color: rgba(0,0,0,.2);
+    height: 100rem;
+    width: 100rem;
+    backdrop-filter: blur(4px);
+    position: fixed;
+    z-index: 10000;
+  }
+  
+  .form {
+    position: fixed;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid whitesmoke;
+  
+    align-items: center;
+    padding: 6rem 8rem;
+  
+    background-color: #3c1161;
+    border-radius: 25px;
+    margin: 8rem 0rem 2rem 30rem;
+  }
+  
+  .input {
+    display: block;
+    width: 80%;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    padding: 1rem 0.5rem 0.5rem 1rem;
+    margin: 1rem 0rem;
+  }
+  
+  .bttn {
+    display: block;
+    font-weight: 700;
+    margin: 0.8rem 0rem 0rem 6rem;
+    border: solid 1px white;
+    color: white;
+    border-radius: 25px;
+    background-color: transparent;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .signup {
+    /* padding: 5rem; */
+    background-image: linear-gradient(to right bottom, #fe8b79, #fdb41b);
+    border: none;
+    margin-right: 6rem;
+  }
+  
+  .bttn:hover {
+    box-shadow: 0rem 0.8rem 0.6rem rgba(0, 0, 0, 0.4);
+  }
+  
+  .bttn:active {
+    box-shadow: 0rem 0.4rem 0.8rem rgba(0, 0, 0, 0.5);
+  }
+  

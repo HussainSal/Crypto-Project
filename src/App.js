@@ -4,10 +4,18 @@ import Page2 from "./Components/Page2/Page2";
 import Page3 from "./Components/Page3/Page3";
 import Page4 from "./Components/Page4/Page4";
 import Login from "./Components/Login";
+import Signup from "./Components/Signup";
+import { useSelector } from "react-redux";
 
 function App() {
+  const isAuth = useSelector((state) => state.auth.login);
+
+  const isSign = useSelector((state) => state.auth.signup);
+
   return (
     <div className="App">
+      {isAuth && <Login />}
+      {isSign && <Signup />}
 
       <Page1 />
       <Page2 />

@@ -7,8 +7,8 @@ import Page1Img from "./Page1Img";
 const Page1 = () => {
   return (
     <div id="home">
-      <Header />
       <div className={classes.page1}>
+       <Header />
         <Page1Content />
         <Page1Img />
       </div>

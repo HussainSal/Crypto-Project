@@ -1,7 +1,7 @@
 .page1 {
   width: 100vw;
   height: 100vh;
-
+  /* filter: blur(6px); */
   display: flex;
 
   justify-content: space-between;

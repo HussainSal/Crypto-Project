@@ -8,7 +8,6 @@ import Change from "./Change";
 import Buy from "./Buy";
 import Details from "./Details";
 
-
 const Page2 = (props) => {
   const [price, setPrice] = useState();
   const [change, setChange] = useState();
@@ -33,7 +32,7 @@ const Page2 = (props) => {
     axios
       .request(options)
       .then(function (response) {
-        // console.log(response.data);
+        console.log(response.data);
 
         let list = response.data;
         let transformedData = {
@@ -52,19 +51,18 @@ const Page2 = (props) => {
       })
       .catch(function (error) {
         console.error(error);
-        setError(true)
+        setError(true);
       });
   }, []);
 
-    
-
   return (
-    <div  id='market' className={classes.box}>
-      <div className={`${error ? classes.notHide :classes.hide  }`} >
-         <p className={classes.errorMessage}> Check your Internet connection</p> 
-         <button  className={classes.bttn}> Try Again </button>
+    <div id="market" className={classes.box}>
+      
 
-       </div>
+      <div className={`${error ? classes.notHide : classes.hide}`}>
+        <p className={classes.errorMessage}> Check your Internet connection</p>
+        <button className={classes.bttn}> Try Again </button>
+      </div>
       <div className={`${!error ? classes.mainContainer : classes.hide}`}>
         <Name />
         <Price price={price} />
@@ -72,7 +70,6 @@ const Page2 = (props) => {
         <Details />
         <Buy />
       </div>
-     
     </div>
   );
 };
