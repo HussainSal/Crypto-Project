@@ -1,42 +1,52 @@
-.overlay {
+.container {
+  height: 100vh;
+  width: 100vw;
+  /* overflow-x: hidden; */
+  position: fixed;
+  top: 0%;
+  box-sizing: border-box;
+  z-index: 10000;
   background-color: rgba(0, 0, 0, 0.2);
-  height: 100rem;
-  width: 140rem;
+  margin-right: 25rem;
   backdrop-filter: blur(4px);
-  position: fixed;
-  z-index: 10000;
+ 
 }
 
-.loading {
-  color: white;
-}
-
-.form {
-  position: fixed;
-  z-index: 10000;
+.detailBox {
   display: flex;
   flex-direction: column;
   border: 2px solid whitesmoke;
-
   align-items: center;
-  padding: 6rem 8rem;
+  width: 50%;
+  height: 50%;
+  position: relative;
 
   background-color: #3c1161;
   border-radius: 25px;
-  margin: 8rem 0rem 2rem 30rem;
+  margin: 10rem auto 2rem auto;
 }
 
-.input {
-  display: block;
-  width: 80%;
-  border-radius: 25px;
-  border: none;
-  outline: none;
-  padding: 1rem 0.5rem 0.5rem 1rem;
-  margin: 1rem 0rem;
+.paraBox{
+  padding-right: 8rem;
+  color: white;
+  display: flex;
+  position: relative;
+  right: 20%;
 }
+
+.img{
+  /* padding-left: 5rem; */
+  position: absolute;
+  left: 150%;
+}
+
+
+
+
 
 .bttn {
+  position: absolute;
+  top: 80%;
   display: block;
   font-weight: 700;
   margin: 0.8rem 0rem 0rem 6rem;

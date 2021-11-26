@@ -1,6 +1,16 @@
+.container{
+  display: flex;
+  align-content: center;
+  padding-top: .6rem;
+}
+
+
 .name {
   text-align: start;
+  /* margin-top: 6rem; */
   margin-left: 3rem;
+    color: #b79dec;
+
 }
 
 .coin {
@@ -14,15 +24,19 @@
 
 .span {
   display: inline-block;
+  display: flex;
+  /* align-content: center; */
+  /* justify-content: center; */
+  height: 25%;
   color: black;
   font-weight: 900;
   font-size: 1.4rem;
-  padding: 1.4rem 0rem;
+  padding: 1.3rem 0rem;
 }
 
 .p {
   display: inline;
-  color: black;
+  color: white;
   font-weight: 400;
   padding-left: 0.5rem;
   font-size: 1rem;

@@ -1,17 +1,23 @@
 import classes from "./Page2.module.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 import Name from "./Name";
 import Price from "./Price";
 import Change from "./Change";
 import Buy from "./Buy";
 import Details from "./Details";
+import DetailItem from "./Details/DetailItem";
 
 const Page2 = (props) => {
   const [price, setPrice] = useState();
   const [change, setChange] = useState();
+  const [name, setName] = useState();
+  const [coinDetail, setCoinDetail] = useState();
   const [error, setError] = useState(false);
+
+  const details = useSelector((state) => state.detail.visible);
 
   useEffect(() => {
     const options = {
@@ -38,16 +44,18 @@ const Page2 = (props) => {
         let transformedData = {
           bitcoin: list[0],
           ethereum: list[1],
-          cardano: list[2],
-          ripple: list[5],
-          solana: list[6],
-          dogecoin: list[8],
+          cardano: list[4],
+          solana: list[5],
+          ripple: list[6],
+          dogecoin: list[9],
           litecoin: list[15],
         };
         console.log(transformedData);
 
         setPrice(transformedData);
         setChange(transformedData);
+        setName(transformedData);
+        setCoinDetail(transformedData);
       })
       .catch(function (error) {
         console.error(error);
@@ -57,18 +65,18 @@ const Page2 = (props) => {
 
   return (
     <div id="market" className={classes.box}>
-      
-
       <div className={`${error ? classes.notHide : classes.hide}`}>
         <p className={classes.errorMessage}> Check your Internet connection</p>
         <button className={classes.bttn}> Try Again </button>
       </div>
+
       <div className={`${!error ? classes.mainContainer : classes.hide}`}>
-        <Name />
+        <Name detail={name} />
         <Price price={price} />
         <Change change={change} />
         <Details />
         <Buy />
+        {details && <DetailItem coin={coinDetail} />}
       </div>
     </div>
   );

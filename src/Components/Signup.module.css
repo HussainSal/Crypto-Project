@@ -1,10 +1,14 @@
 .overlay {
   background-color: rgba(0,0,0,.2);
   height: 100rem;
-  width: 100rem;
+  width: 140rem;
   backdrop-filter: blur(4px);
   position: fixed;
   z-index: 10000;
+}
+
+.loading{
+  color: white;
 }
 
 .form {
@@ -19,12 +23,12 @@
 
   background-color: #3c1161;
   border-radius: 25px;
-  margin: 4rem 0rem 2rem 30rem;
+  margin: 8rem 0rem 2rem 30rem;
 }
 
 .input {
   display: block;
-  width: 50%;
+  width: 85%;
   border-radius: 25px;
   border: none;
   outline: none;

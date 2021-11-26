@@ -1,13 +1,14 @@
 import classes from "./Change.module.css";
+import { Button } from "@material-ui/core";
 
 const Change = (props) => {
   return (
     <div>
-      <h3>Change</h3>
+      <h3 className={classes.h3}>Change</h3>
       <div className={classes.changeBox}>
         {props.change &&
           Object.keys(props.change).map((e, i) => {
-            let change = props.change[e].ath_change_percentage;
+            let change = props.change[e].price_change_percentage_24h;
             console.log(change);
             return (
               <p key={i}

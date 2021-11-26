@@ -1,9 +1,22 @@
 import classes from "./HeaderButtons.module.css";
-
+import { Button } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../Store/Index";
+import { makeStyles } from "@material-ui/core";
+import { Link } from "react-router-dom";
+import { Height } from "@material-ui/icons";
+
+const useStyles = makeStyles({
+  bttns: {
+    color: "#fff",
+    textDecoration:'none',
+    height:'65px'
+  },
+});
 
 const HeaderButtons = () => {
+  const sty = useStyles();
+
   const dispatch = useDispatch();
 
   const loginHandler = (e) => {
@@ -35,19 +48,21 @@ const HeaderButtons = () => {
   return (
     <div className={classes.container}>
       <div className={classes.nav}>
-        <p onClick={homeHandler} className={classes.para}>
-          Home
-        </p>
-        <p onClick={marketHandler} className={classes.para}>
-          Market
-        </p>
+          <Button onClick={()=> homeHandler() } className={`${classes.para} ${sty.bttns}`} >Home</Button>
+        
+      
+        <Button onClick={()=> marketHandler() }  className={`${classes.para} ${sty.bttns}`} >
+            Market
+        </Button>
 
-        <p onClick={journeyHandler} className={classes.para}>
-          Steps involved
-        </p>
-        <p onClick={moreHandler} className={classes.para}>
-          More
-        </p>
+     
+        <Button onClick={()=> journeyHandler() }  className={`${classes.para} ${sty.bttns}`} >
+            Steps involved
+        </Button>
+        <Button onClick={()=> moreHandler() }  className={`${classes.para} ${sty.bttns}`} >
+            More
+        </Button>
+        
       </div>
       <div>
         <button onClick={loginHandler} className={classes.bttn}>

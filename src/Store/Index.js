@@ -23,25 +23,47 @@ const authSlice = createSlice({
   },
 });
 
-const detail = { visible: false  }
+
+const login = { loggedIn: false };
+
+const loginSlice = createSlice({
+  name: "login",
+  initialState: login,
+  reducers: {
+    loggedIn(state) {
+      state.loggedIn = true;
+    },
+    loggedout(state) {
+      state.loggedIn = false;
+    }
+  },
+});
+
+
+const detail = { visible: false ,  };
 
 const detailSlice = createSlice({
   name: "detail",
   initialState: detail,
   reducers: {
     visible(state) {
-      state.visible = !this.visible;
+      state.visible = true;
     },
-
+    notVisible(state) {
+      state.visible = false;
+    }
   },
 });
 
 const store = configureStore({
-  reducer: { auth: authSlice.reducer , detail: detailSlice.reducer },
+  reducer: { auth: authSlice.reducer, detail: detailSlice.reducer , logg: loginSlice.reducer },
 });
 
 
-export const detalActions = detailSlice.actions;
+
+export const loginAction = loginSlice.actions;
+
+export const detailActions = detailSlice.actions;
 
 export const authActions = authSlice.actions;
 

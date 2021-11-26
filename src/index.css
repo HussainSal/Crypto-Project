@@ -8,6 +8,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-position:top;
   overflow-x: hidden;
+  scroll-behavior: smooth;
   
 
 }

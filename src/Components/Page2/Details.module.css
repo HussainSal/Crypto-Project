@@ -8,6 +8,11 @@
   
 }
 
+.h3{
+  color: #b79dec;
+  /* margin-top: 6rem; */
+
+}
 
 .bttn {
   padding-top: 0.4rem;
@@ -22,6 +27,8 @@
   transition: all 0.3s;
   width: 6rem;
   padding: 1rem;
+  /* box-shadow: 0rem 0.8rem 0.6rem rgba(0, 0, 0, 0.4); */
+
 }
 
 .bttn:hover {

@@ -13,7 +13,7 @@ const Page1Content = () => {
         </p>
       </div>
 
-      <BitAmount  />
+      {/* <BitAmount  /> */}
     </div>
   );
 };

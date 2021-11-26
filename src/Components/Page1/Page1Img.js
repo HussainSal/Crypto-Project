@@ -1,5 +1,5 @@
 import classes from "./Page1Img.module.css";
-import logo from './page1_2.jpg';
+import logo from './backgroundMain.png';
 
 const Page1Img = () => {
   return <div className={classes.imgBox}>

@@ -8,7 +8,7 @@ const Page1 = () => {
   return (
     <div id="home">
       <div className={classes.page1}>
-       <Header />
+       {/* <Header /> */}
         <Page1Content />
         <Page1Img />
       </div>
