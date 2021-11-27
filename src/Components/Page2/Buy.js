@@ -12,9 +12,6 @@ const Buy = () => {
       <button className={`${classes.bttn} ${classes.signup}` }> Buy </button>
       <button className={`${classes.bttn} ${classes.signup}` }> Buy </button>
       <button className={`${classes.bttn} ${classes.signup}` }> Buy </button>
-      
-
-
     </div>
     </div>
   );

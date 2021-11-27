@@ -2,6 +2,7 @@ import classes from "./Page2.module.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { makeStyles } from "@material-ui/core";
 
 import Name from "./Name";
 import Price from "./Price";
@@ -9,8 +10,20 @@ import Change from "./Change";
 import Buy from "./Buy";
 import Details from "./Details";
 import DetailItem from "./Details/DetailItem";
+import { Grid } from "@material-ui/core";
+
+
+const useStyle = makeStyles({
+  gridItem:{
+    textAlign:'center'
+  }
+
+})
 
 const Page2 = (props) => {
+
+  const style = useStyle()
+  const [loading , setLoading] = useState(false);
   const [price, setPrice] = useState();
   const [change, setChange] = useState();
   const [name, setName] = useState();
@@ -20,6 +33,7 @@ const Page2 = (props) => {
   const details = useSelector((state) => state.detail.visible);
 
   useEffect(() => {
+    setLoading(true)
     const options = {
       method: "GET",
       url: "https://coingecko.p.rapidapi.com/coins/markets",
@@ -61,22 +75,38 @@ const Page2 = (props) => {
         console.error(error);
         setError(true);
       });
+      setLoading(false)
+
   }, []);
+
+
 
   return (
     <div id="market" className={classes.box}>
       <div className={`${error ? classes.notHide : classes.hide}`}>
         <p className={classes.errorMessage}> Check your Internet connection</p>
-        <button className={classes.bttn}> Try Again </button>
+        <button onClick={()=> window.location.reload()} className={classes.bttn}> Try Again </button>
       </div>
 
       <div className={`${!error ? classes.mainContainer : classes.hide}`}>
-        <Name detail={name} />
-        <Price price={price} />
-        <Change change={change} />
-        <Details />
-        <Buy />
-        {details && <DetailItem coin={coinDetail} />}
+        <Grid container>
+          <Grid className={style.gridItem} item md={3}>
+            <Name detail={name} />
+          </Grid>
+          <Grid className={style.gridItem} item md={3}>
+            <Price price={price} />
+          </Grid>
+          <Grid className={style.gridItem} item md={3}>
+            <Change change={change} />
+          </Grid>
+          <Grid className={style.gridItem} item md={3}>
+            <Buy detail={name} />
+          </Grid>
+          {/* <Grid item md={2}>
+            <Details />
+          </Grid> */}
+        </Grid>
+        {/* {details && <DetailItem coin={coinDetail} />} */}
       </div>
     </div>
   );

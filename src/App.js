@@ -7,9 +7,9 @@ import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import { useSelector } from "react-redux";
 import LoggedIn from "./Components/Logged/LoggedIn";
-import { Route } from "react-router";
 import Header from "./Components/Page1/Header";
 import CommonFooter from "./Components/CommonFooter/CommonFooter";
+
 
 function App() {
   const login = useSelector((state) => state.logg.loggedIn);
@@ -17,6 +17,9 @@ function App() {
   const isAuth = useSelector((state) => state.auth.login);
 
   const isSign = useSelector((state) => state.auth.signup);
+
+  
+ 
 
   return (
     <div className="App">
@@ -27,14 +30,11 @@ function App() {
       <Header />
 
       {!login && <Page1 />}
-
       {!login && <Page2 />}
-
       {!login && <Page3 />}
-
       {!login && <Page4 />}
 
-     {login && <CommonFooter />}
+      {login && <CommonFooter />}
     </div>
   );
 }

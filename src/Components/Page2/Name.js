@@ -3,6 +3,7 @@ import classes from "./Name.module.css";
 const Name = (props) => {
   return (
     <div>
+    <div>
       <h3 className={classes.name}>Name</h3>
       <div className={classes.coin}>
         {props.detail &&
@@ -20,6 +21,7 @@ const Name = (props) => {
             );
           })}
       </div>
+    </div>
     </div>
   );
 };

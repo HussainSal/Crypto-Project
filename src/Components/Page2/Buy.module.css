@@ -1,16 +1,19 @@
     .box{
-        display: grid;
-        grid-template-columns: 1;
-        grid-template-rows: 7;
+        display: flex;
+        /* grid-template-columns: 1;
+        grid-template-rows: 7; */
+        flex-direction: column;
+        align-items: center;
+
         /* margin-top: 1rem; */
         padding-top: .3rem;
-        /* text-align: end; */
-        text-align: end;
+    
     
     }
 
     .h3{
       color: #b79dec;
+      text-align: center;
       /* margin-top: 6rem; */
 
     }

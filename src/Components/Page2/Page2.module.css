@@ -7,13 +7,14 @@
 }
 
 .mainContainer {
-  display: grid;
+  /* display: grid; */
 
-  grid-template-rows: 100px;
-  grid-template-columns: 400px repeat(4, 1fr);
+  /* grid-template-rows: 100px; */
+  /* grid-template-columns: 400px repeat(4, 1fr); */
   color: gray;
   font-weight: 500;
   text-align: start;
+  padding-top: 50px;
 }
 
 .bttn {

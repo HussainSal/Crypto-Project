@@ -19,11 +19,11 @@
   border: 2px solid whitesmoke;
 
   align-items: center;
-  padding: 6rem 8rem;
+  padding: 3rem 8rem;
 
   background-color: #3c1161;
   border-radius: 25px;
-  margin: 8rem 0rem 2rem 30rem;
+  margin: 4rem 0rem 2rem 30rem;
 }
 
 .input {
@@ -61,4 +61,8 @@
 
 .bttn:active {
   box-shadow: 0rem 0.4rem 0.8rem rgba(0, 0, 0, 0.5);
+}
+
+.googleContainer{
+  margin-top: 25px;
 }

@@ -3,20 +3,43 @@ import { useDispatch } from "react-redux";
 import { authActions } from "../Store/Index";
 import { useRef, useState } from "react";
 import { loginAction } from "../Store/Index";
-
+import {
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+} from "firebase/auth";
+import GoogleButton from "react-google-button";
+import { auth } from "..";
+import { Typography } from "@material-ui/core";
 
 const Signup = () => {
   const [loading, setLoading] = useState(false);
+  const [userData, setUserData] = useState([]);
   const emailRef = useRef();
   const passwordRef = useRef();
+  const nameRef = useRef();
+  const phoneNumber = useRef()
 
   const dispatch = useDispatch();
   const signDispatch = useDispatch();
 
-
   const closeHandler = () => {
     dispatch(authActions.signoff());
   };
+
+  const googleProvider = new GoogleAuthProvider();
+
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, googleProvider).then((res) => {
+      // console.log(user);
+      closeHandler();
+      signDispatch(loginAction.loggedIn());
+      alert(`welcome ${res.user.displayName}`);
+    });
+  };
+
+
+
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -25,46 +48,52 @@ const Signup = () => {
 
     let enteredPassword = passwordRef.current.value;
 
-    emailRef.current.value = "";
-    passwordRef.current.value = "";
+    let enteredName = nameRef.current.value;
 
     // closeHandler();
 
     setLoading(true);
-    fetch(
-      "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAozhom4BH2VA8q9rT77IUqW2XpY650rAA",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          email: enteredEmail,
-          password: enteredPassword,
-          returnSecureToken: true,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    ).then((res) => {
-      setLoading(false);
-      if (res.ok) {
+
+    createUserWithEmailAndPassword(auth, enteredEmail, enteredPassword)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        user.displayName = enteredName;
         closeHandler();
-        signDispatch(loginAction.loggedIn())
-        
-        
+        signDispatch(loginAction.loggedIn());
+        alert(`welcome ${user.displayName}`);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage || "Invalid Credentials");
+        // ..
+      });
 
-        //..
-      } else {
-        return res.json().then((data) => {
-          let errorMessage = "Authentication Failed";
+    // createUserWithEmailAndPassword(auth, enteredEmail, enteredPassword)
+    //   .then((userCredential) => {
+    //     // Signed in
+    //     const user = userCredential.user;
+    //     user.displayName = enteredName
+    //     console.log(user);
+    //     closeHandler();
+    //     signDispatch(loginAction.loggedIn())
+    //     alert(`welcome ${user.displayName}`);
 
-          if (data && data.error && data.error.message) {
-            errorMessage = data.error.message;
-          }
-          console.log(data);
-          alert(errorMessage);
-        });
-      }
-    });
+    //     // ...
+    //   })
+    //   .catch((error) => {
+    //     const errorCode = error.code;
+    //     const errorMessage = error.message;
+    //     alert(errorMessage || "Invalid Credentials");
+    //     // ..
+    //   });
+
+    emailRef.current.value = "";
+    passwordRef.current.value = "";
+    nameRef.current.value = "";
+    setLoading(false);
   };
 
   return (
@@ -73,8 +102,24 @@ const Signup = () => {
         <input
           className={classes.input}
           type="text"
+          placeholder="Full Name"
+          ref={nameRef}
+          required
+        />
+
+        <input
+          className={classes.input}
+          type="text"
           placeholder="Email Address"
           ref={emailRef}
+          required
+        />
+
+        <input
+          className={classes.input}
+          type="number"
+          placeholder="Phone Number"
+          ref={phoneNumber}
           required
         />
 
@@ -100,6 +145,14 @@ const Signup = () => {
             Close
           </button>
         )}
+
+          <Typography style={{color:'#FFF',marginTop:'20px'}}> OR </Typography>
+        <div className={classes.googleContainer}>
+          <GoogleButton
+            style={{ width: "100%", outline: "none" }}
+            onClick={signInWithGoogle}
+          />
+        </div>
 
         {loading && <p className={classes.loading}>Loading...</p>}
       </form>

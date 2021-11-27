@@ -12,7 +12,6 @@ const LoggedIn = () => {
       <FirstBar />
       <SecondBar />
       <Finished />
-
     </div>
   );
 };
