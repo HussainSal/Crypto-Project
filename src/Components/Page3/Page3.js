@@ -34,7 +34,7 @@ const Page3 = () => {
         </div>
       </div>
       <div className={classes.logo}>
-          <img className={classes.img} src= {img} />
+          <img className={classes.img} src= {img}  alt= '' />
       </div>
     </div>
   );

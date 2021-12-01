@@ -1,0 +1,24 @@
+
+
+.container{
+    margin: auto ;
+    width: 1250px;
+    padding-bottom: 150px;
+}
+
+.subContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 60vw;
+    margin: auto;
+    
+}
+
+.nameContainer{
+    display: flex;
+
+}
+
+.nameSubcontainer{
+    margin-left: 10px;
+}

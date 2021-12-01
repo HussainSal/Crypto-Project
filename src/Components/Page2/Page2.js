@@ -1,39 +1,34 @@
 import classes from "./Page2.module.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { makeStyles } from "@material-ui/core";
+import { useDispatch } from "react-redux";
+import { makeStyles, Button, Typography } from "@material-ui/core";
+import { apiDataAction } from "../../Store/Index";
 
-import Name from "./Name";
-import Price from "./Price";
-import Change from "./Change";
-import Buy from "./Buy";
-import Details from "./Details";
-import DetailItem from "./Details/DetailItem";
-import { Grid } from "@material-ui/core";
+import Loading from "../Loading/Loading";
 
+import { Table } from "@material-ui/core";
+import { TableBody } from "@material-ui/core";
+import { TableCell } from "@material-ui/core";
+import { TableContainer } from "@material-ui/core";
+import { TableHead } from "@material-ui/core";
+import { TableRow } from "@material-ui/core";
+import { Paper } from "@material-ui/core";
 
 const useStyle = makeStyles({
-  gridItem:{
-    textAlign:'center'
-  }
-
-})
+  gridItem: {
+    textAlign: "center",
+  },
+});
 
 const Page2 = (props) => {
-
-  const style = useStyle()
-  const [loading , setLoading] = useState(false);
-  const [price, setPrice] = useState();
-  const [change, setChange] = useState();
-  const [name, setName] = useState();
-  const [coinDetail, setCoinDetail] = useState();
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  const [coin, setCoin] = useState();
   const [error, setError] = useState(false);
 
-  const details = useSelector((state) => state.detail.visible);
-
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     const options = {
       method: "GET",
       url: "https://coingecko.p.rapidapi.com/coins/markets",
@@ -52,9 +47,10 @@ const Page2 = (props) => {
     axios
       .request(options)
       .then(function (response) {
-        console.log(response.data);
-
         let list = response.data;
+
+        dispatch(apiDataAction.getCoinData(list));
+
         let transformedData = {
           bitcoin: list[0],
           ethereum: list[1],
@@ -64,51 +60,105 @@ const Page2 = (props) => {
           dogecoin: list[9],
           litecoin: list[15],
         };
-        console.log(transformedData);
 
-        setPrice(transformedData);
-        setChange(transformedData);
-        setName(transformedData);
-        setCoinDetail(transformedData);
+        let convertedToArray = Object.keys(transformedData).map((key) => {
+          return transformedData[key];
+        });
+
+        setCoin(convertedToArray);
       })
       .catch(function (error) {
-        console.error(error);
         setError(true);
       });
-      setLoading(false)
-
+    setLoading(false);
   }, []);
 
-
-
   return (
-    <div id="market" className={classes.box}>
-      <div className={`${error ? classes.notHide : classes.hide}`}>
-        <p className={classes.errorMessage}> Check your Internet connection</p>
-        <button onClick={()=> window.location.reload()} className={classes.bttn}> Try Again </button>
+    <section id='market' className={classes.box}>
+      <div className={classes.container}>
+        <TableContainer
+          style={{ backgroundColor: "#3C1161" }}
+          component={Paper}
+        >
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell style={{ color: "#FFFFFF" }}>NAME</TableCell>
+                <TableCell style={{ color: "#FFFFFF" }} align="right">
+                  PRICE
+                </TableCell>
+                <TableCell style={{ color: "#FFFFFF" }} align="right">
+                  24H CHANGE
+                </TableCell>
+                <TableCell style={{ color: "#FFFFFF" }} align="right">
+                  24H PRICE CHANGE{" "}
+                </TableCell>
+                <TableCell style={{ color: "#FFFFFF" }} align="right">
+                  TRADE
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {coin &&
+                coin.map((row) => (
+                  <TableRow
+                    key={row.name}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell
+                      style={{ color: "#FFFFFF" }}
+                      component="th"
+                      scope="row"
+                    >
+                      <div className={classes.nameContainer}>
+                        <img width="40px" height="40px" src={row.image} alt='' />
+                        <div className={classes.nameSubcontainer}>
+                          <Typography style={{ textTransform: "uppercase" }}>
+                            <b> {row.symbol} </b>{" "}
+                          </Typography>
+                          <Typography
+                            style={{ color: "rgba(204, 197, 197, 0.829)" }}
+                          >
+                            {row.name}
+                          </Typography>
+                        </div>
+                      </div>
+                    </TableCell>
+                    <TableCell style={{ color: "#FFFFFF" }} align="right">
+                      {row.current_price}
+                    </TableCell>
+                    <TableCell
+                      style={{
+                        color:
+                          row.price_change_percentage_24h > 0
+                            ? `#25B196`
+                            : `#CD1818`,
+                      }}
+                      align="right"
+                    >
+                      {row.price_change_percentage_24h}
+                    </TableCell>
+                    <TableCell style={{ color: "#FFFFFF" }} align="right">
+                      {row.price_change_24h}
+                    </TableCell>
+                    <TableCell style={{ color: "#FFFFFF" }} align="right">
+                      {
+                        <Button
+                          onClick={()=> alert('Trading is only allowed if user is logged in')}
+                          style={{ backgroundColor: "#25B196", color: "white" }}
+                        >
+                          {" "}
+                          buy{" "}
+                        </Button>
+                      }
+                    </TableCell>
+                  </TableRow>
+                ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </div>
-
-      <div className={`${!error ? classes.mainContainer : classes.hide}`}>
-        <Grid container>
-          <Grid className={style.gridItem} item md={3}>
-            <Name detail={name} />
-          </Grid>
-          <Grid className={style.gridItem} item md={3}>
-            <Price price={price} />
-          </Grid>
-          <Grid className={style.gridItem} item md={3}>
-            <Change change={change} />
-          </Grid>
-          <Grid className={style.gridItem} item md={3}>
-            <Buy detail={name} />
-          </Grid>
-          {/* <Grid item md={2}>
-            <Details />
-          </Grid> */}
-        </Grid>
-        {/* {details && <DetailItem coin={coinDetail} />} */}
-      </div>
-    </div>
+    </section>
   );
 };
 

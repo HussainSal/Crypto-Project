@@ -9,6 +9,8 @@ import {BrowserRouter} from  "react-router-dom"
 import { initializeApp } from "firebase/app";
 import {getFirestore} from "firebase/firestore"
 import { getAuth } from "@firebase/auth";
+import { ThemeProvider } from "@material-ui/styles";
+import theme from "./theme";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCulRahzdLSXbJkYkkMPbo8JVRe19KC_ow",
@@ -29,9 +31,12 @@ export {auth , db}
 
 ReactDOM.render(
   <React.StrictMode>
+
     <BrowserRouter>
     <Provider store={store}>
+    <ThemeProvider theme={theme}>
       <App />
+      </ThemeProvider>
     </Provider>
     </BrowserRouter>
   </React.StrictMode>,

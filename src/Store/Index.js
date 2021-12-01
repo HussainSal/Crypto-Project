@@ -23,6 +23,19 @@ const authSlice = createSlice({
   },
 });
 
+const apiDataInitialState = {response: [] }
+const apiSlice = createSlice({
+  name:"apiSlice",
+  initialState:apiDataInitialState,
+  reducers:{
+
+    getCoinData(state, action){
+      state.response = action.payload
+    }
+
+  }
+})
+
 
 const login = { loggedIn: false };
 
@@ -56,10 +69,10 @@ const detailSlice = createSlice({
 });
 
 const store = configureStore({
-  reducer: { auth: authSlice.reducer, detail: detailSlice.reducer , logg: loginSlice.reducer },
+  reducer: { auth: authSlice.reducer, detail: detailSlice.reducer , logg: loginSlice.reducer , coinData : apiSlice.reducer },
 });
 
-
+export const apiDataAction = apiSlice.actions;  
 
 export const loginAction = loginSlice.actions;
 

@@ -3,7 +3,7 @@ import logo from './backgroundMain.png';
 
 const Page1Img = () => {
   return <div className={classes.imgBox}>
-      <img src={logo} className={classes.img} />
+      <img src={logo} className={classes.img} alt='' />
   </div>;
 };
 

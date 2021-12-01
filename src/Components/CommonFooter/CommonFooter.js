@@ -2,6 +2,8 @@ import { Container, Grid, Link, Typography } from "@material-ui/core";
 import React from "react";
 import classes from "./CommonFooter.module.css";
 import { makeStyles } from "@material-ui/core";
+import downloadFromGoogle from "./google.png";
+import downloadFromApple from "./apple.png";
 
 const company = [
   "About Us",
@@ -45,9 +47,12 @@ const CommonFooter = () => {
   return (
     <div className={classes.container}>
       <Container>
-        <Grid container style={{ padding: "45px" , color:'#FFFFFF' }}>
+        <Grid container style={{ padding: "45px", color: "#FFFFFF" }}>
           <Grid item md={3}>
-           <Typography variant='h6' style={{paddingBottom:'10px'}}> Company </Typography>
+            <Typography variant="h6" style={{ paddingBottom: "10px" }}>
+              {" "}
+              Company{" "}
+            </Typography>
             {company.map((item) => {
               return (
                 <div>
@@ -58,7 +63,10 @@ const CommonFooter = () => {
             })}
           </Grid>
           <Grid item md={3}>
-          <Typography variant='h6' style={{paddingBottom:'10px'}}> Products </Typography>
+            <Typography variant="h6" style={{ paddingBottom: "10px" }}>
+              {" "}
+              Products{" "}
+            </Typography>
             {products.map((item) => {
               return (
                 <div>
@@ -69,7 +77,10 @@ const CommonFooter = () => {
             })}
           </Grid>
           <Grid item md={3}>
-          <Typography variant='h6' style={{paddingBottom:'10px'}}> Services </Typography>
+            <Typography variant="h6" style={{ paddingBottom: "10px" }}>
+              {" "}
+              Services{" "}
+            </Typography>
             {services.map((item) => {
               return (
                 <div>
@@ -80,8 +91,24 @@ const CommonFooter = () => {
             })}
           </Grid>
           <Grid item md={3}>
-          <Typography variant='h6' style={{paddingBottom:'10px'}}> Contact </Typography>
+            <Typography variant="h6" style={{ paddingBottom: "10px" }}>
+              {" "}
+              Contact{" "}
+            </Typography>
             <Link className={style.link}>Customer Support </Link>
+
+            <div style={{ paddingTop: "40px" }}>
+              <Link className={style.link}>Download the Bitbns app from </Link>
+              <div className={classes.imgContainer}>
+              <img
+            
+                height="60px"
+                src={downloadFromGoogle}
+                alt=""
+              />
+              <img width="140px" height="40px" src={downloadFromApple} alt="" />
+            </div>
+            </div>
           </Grid>
         </Grid>
       </Container>

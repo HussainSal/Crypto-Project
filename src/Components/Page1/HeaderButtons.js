@@ -3,9 +3,6 @@ import { Button } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../Store/Index";
 import { makeStyles } from "@material-ui/core";
-import { Link } from "react-router-dom";
-import { Height } from "@material-ui/icons";
-import { useHistory } from "react-router";
 
 const useStyles = makeStyles({
   bttns: {
@@ -17,7 +14,6 @@ const useStyles = makeStyles({
 
 const HeaderButtons = () => {
   const sty = useStyles();
-  const history = useHistory();
 
   const dispatch = useDispatch();
 

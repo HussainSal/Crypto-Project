@@ -9,32 +9,22 @@ const FirstBar = () => {
     <div className={classes.container}>
       <div className={classes.subhead}>
         <span className={classes.shadow} />
-        <img className={classes.image} src={img1} />
+        <img className={classes.image} src={img1} alt='' />
       </div>
       <div className={classes.subhead}>
         <span className={classes.shadow} />
-        <img className={classes.image} src={img2} />
+        <img className={classes.image} src={img2} alt='' />
       </div>
       <div className={classes.subhead}>
         <span className={classes.shadow} />
-        <img className={classes.image} src={img3} />
+        <img className={classes.image} src={img3} alt='' />
       </div>
       <div className={classes.subhead}>
         <span className={classes.shadow} />
-        <img className={classes.image} src={img4} />
+        <img className={classes.image} src={img4} alt='' />
       </div>
     </div>
   );
 };
 
 export default FirstBar;
-
-// <div>
-//     <div></div>
-//     <ing/ >
-// </div>
-{
-  /* <img className={classes.items} src={img2} />
-  <img className={classes.items} src={img3} />
-  <img className={classes.items} src={img4} /> */
-}

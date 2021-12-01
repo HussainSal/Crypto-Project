@@ -2,11 +2,11 @@ import classes from "./Login.module.css";
 import { useDispatch } from "react-redux";
 import { authActions } from "../Store/Index";
 import { loginAction } from "../Store/Index";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef} from "react";
 import {  signInWithEmailAndPassword,GoogleAuthProvider,signInWithPopup } from "firebase/auth";
 import { auth } from "..";
 import GoogleButton from "react-google-button";
-import { Box, Typography } from "@material-ui/core";
+import {  Typography } from "@material-ui/core";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -49,7 +49,6 @@ const Login = () => {
         // Signed in
 
         const user = userCredential.user;
-        const userId = user.uid;
         console.log(user);
 
         // checking wheteher signed in or
@@ -59,51 +58,16 @@ const Login = () => {
         dispatch(loginAction.loggedIn());
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
         alert(errorMessage || "Invalid Credentials");
       });
 
-      
 
-    // import { getAuth, onAuthStateChanged } from "firebase/auth";
-    // const auth = getAuth();
 
     emailRef.current.value = "";
     passwordRef.current.value = "";
     setLoading(false);
-    // fetch(
-    //   " https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAozhom4BH2VA8q9rT77IUqW2XpY650rAA",
-    //   {
-    //     method: "POST",
-    //     body: JSON.stringify({
-    //       email: enteredEmail,
-    //       password: enteredPassword,
-    //       returnSecureToken: true,
-    //     }),
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //   }
-    // ).then((res) => {
-    //   if (res.ok) {
-    //     closeHandler();
-    //     signDispatch(loginAction.loggedIn());
-    //     dispatch(loginAction.loggedIn());
-
-    //     //..
-    //   } else {
-    //     return res.json().then((data) => {
-    //       let errorMessage = "Authentication Failed";
-
-    //       if (data && data.error && data.error.message) {
-    //         errorMessage = data.error.message;
-    //       }
-    //       console.log(data);
-    //       alert(errorMessage);
-    //     });
-    //   }
-    // });
+  
 
     dispatch(authActions.logout());
   };

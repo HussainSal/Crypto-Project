@@ -9,23 +9,39 @@ import { useSelector } from "react-redux";
 import LoggedIn from "./Components/Logged/LoggedIn";
 import Header from "./Components/Page1/Header";
 import CommonFooter from "./Components/CommonFooter/CommonFooter";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from ".";
+import { loginAction } from "./Store/Index";
+import { useDispatch } from "react-redux";
+
 
 
 function App() {
+  const signinDispatch = useDispatch()
   const login = useSelector((state) => state.logg.loggedIn);
 
   const isAuth = useSelector((state) => state.auth.login);
 
   const isSign = useSelector((state) => state.auth.signup);
 
-  
- 
-
   return (
     <div className="App">
       {isAuth && <Login />}
       {isSign && <Signup />}
       {login && <LoggedIn />}
+
+      {onAuthStateChanged(auth, (user) => {
+        if (user) {
+          signinDispatch(loginAction.loggedIn())
+
+          // ...
+        } else {
+          signinDispatch(loginAction.loggedout())
+
+          // User is signed out
+          // ...
+        }
+      })}
 
       <Header />
 

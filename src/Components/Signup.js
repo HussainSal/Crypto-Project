@@ -14,7 +14,6 @@ import { Typography } from "@material-ui/core";
 
 const Signup = () => {
   const [loading, setLoading] = useState(false);
-  const [userData, setUserData] = useState([]);
   const emailRef = useRef();
   const passwordRef = useRef();
   const nameRef = useRef();
@@ -54,6 +53,7 @@ const Signup = () => {
 
     setLoading(true);
 
+
     createUserWithEmailAndPassword(auth, enteredEmail, enteredPassword)
       .then((userCredential) => {
         // Signed in
@@ -61,34 +61,19 @@ const Signup = () => {
         user.displayName = enteredName;
         closeHandler();
         signDispatch(loginAction.loggedIn());
-        alert(`welcome ${user.displayName}`);
+        alert(`welcome ${user.displayName}`);   
+
         // ...
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
         alert(errorMessage || "Invalid Credentials");
         // ..
       });
 
-    // createUserWithEmailAndPassword(auth, enteredEmail, enteredPassword)
-    //   .then((userCredential) => {
-    //     // Signed in
-    //     const user = userCredential.user;
-    //     user.displayName = enteredName
-    //     console.log(user);
-    //     closeHandler();
-    //     signDispatch(loginAction.loggedIn())
-    //     alert(`welcome ${user.displayName}`);
+      
 
-    //     // ...
-    //   })
-    //   .catch((error) => {
-    //     const errorCode = error.code;
-    //     const errorMessage = error.message;
-    //     alert(errorMessage || "Invalid Credentials");
-    //     // ..
-    //   });
+    
 
     emailRef.current.value = "";
     passwordRef.current.value = "";

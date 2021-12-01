@@ -1,5 +1,4 @@
 import classes from "./Page1Content.module.css";
-import BitAmount from "./BitAmount";
 
 const Page1Content = () => {
   return (
@@ -13,7 +12,6 @@ const Page1Content = () => {
         </p>
       </div>
 
-      {/* <BitAmount  /> */}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import classes from "./LoggedinNav.module.css";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
@@ -9,10 +9,8 @@ import NotificationsNoneIcon from "@material-ui/icons/NotificationsNone";
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
 import { Menu } from "@material-ui/core";
 import { MenuItem } from "@material-ui/core";
-import { getAuth, onAuthStateChanged ,signOut} from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../..";
-
-
 
 const useStyles = makeStyles({
   bttns: {
@@ -26,7 +24,7 @@ const useStyles = makeStyles({
 });
 
 const LoggedinNavigation = () => {
-  const [userInfo,setUserInfo] = useState();
+  const [name , setName] = useState();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -37,42 +35,46 @@ const LoggedinNavigation = () => {
   };
 
   const dispatch = useDispatch();
-
- 
-
   const sty = useStyles();
 
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setName(user.displayName);
+   
+    } else {
+   
+    }
+  });
 
-// const auth = getAuth();
-onAuthStateChanged(auth, user => {
-  if (user) {
+  const user = auth.currentUser;
+if (user !== null) {
+  // The user object has basic properties such as display name, email, etc.
+  const displayName = user.displayName;
+
+
+  console.log(displayName)
+
+}
+
   
-    setUserInfo(user.displayName);
-    const uid = user.uid;
-    // console.log(user)
-    // ...
-  } else {
-    // setUserInfo(null)
-    // ...
-  }
-});
 
-const logoutHandler = () => {
-  dispatch(loginAction.loggedout());
+  const logoutHandler = () => {
+    dispatch(loginAction.loggedout());
 
-signOut(auth).then(() => {
-  console.log('signout')
-  // Sign-out successful.
-}).catch((error) => {
-  // An error happened.
-});
-
-};
+    signOut(auth)
+      .then(() => {
+        console.log("signout");
+        // Sign-out successful.
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  };
 
   return (
     <div className={classes.navigation}>
       <div className={classes.buttons}>
-        {<img className={classes.logo} src={logo} />}
+        {<img className={classes.logo} src={logo}  alt='' />}
 
         <Button className={sty.bttns}>Markets</Button>
         <Button className={sty.bttns}> Trade </Button>
@@ -95,9 +97,9 @@ signOut(auth).then(() => {
           aria-haspopup="true"
           aria-expanded={open ? "true" : undefined}
           onClick={handleClick}
-          style={{color:'#FFFFFF'}}
+          style={{ color: "#FFFFFF" }}
         >
-          <AccountCircleOutlinedIcon  className={sty.bttns} /> {userInfo}
+          <AccountCircleOutlinedIcon className={sty.bttns} /> {name}
         </Button>
         <Menu
           id="basic-menu"
@@ -117,7 +119,7 @@ signOut(auth).then(() => {
   );
 };
 
-export default LoggedinNavigation;
+export default React.memo(LoggedinNavigation) ;
 /*
 
 */

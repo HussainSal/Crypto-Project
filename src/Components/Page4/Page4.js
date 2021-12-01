@@ -8,8 +8,9 @@ const Page4 = () => {
       <div className={classes.mainHeading}>
         <h1>Start trading now</h1>
 
-        <button className={classes.bttn}> Sign Up</button>
-        <button className={`${classes.bttn} ${classes.signup}`}>
+        {/* <button className={classes.bttn}> Sign Up</button> */}
+
+        <button onClick={()=> alert('Trading is only allowed if user is logged in')} className={`${classes.bttn} ${classes.signup}`}>
           Trade Now
         </button>
 

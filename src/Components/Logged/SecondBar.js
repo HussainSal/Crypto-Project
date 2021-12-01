@@ -23,7 +23,7 @@ const SecondBar = () => {
     <div className={classes.container}>
      <div>
       <div className={classes.kyc}>
-        <img src={kyc} />
+        <img src={kyc} alt='' />
       </div>
       <Button variant="contained" className={`${sty.bttn} ${classes.button}`}>
         start kyc{" "}
@@ -32,7 +32,7 @@ const SecondBar = () => {
 
       <div className={classes.subContainer}>
         <span className={classes.shadow}></span>
-         <img className={classes.bitbns5} src={bitbns5} />
+         <img className={classes.bitbns5} src={bitbns5} alt='' />
       </div>
     </div>
   );

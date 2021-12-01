@@ -12,6 +12,10 @@
  
 }
 
+h2{
+  color: #FFF;
+}
+
 .detailBox {
   display: flex;
   flex-direction: column;
@@ -30,8 +34,12 @@
   padding-right: 8rem;
   color: white;
   display: flex;
+  flex-direction: column;
   position: relative;
+  text-align: start;
   right: 20%;
+  top: 30px;
+
 }
 
 .img{
@@ -71,4 +79,10 @@
 
 .bttn:active {
   box-shadow: 0rem 0.4rem 0.8rem rgba(0, 0, 0, 0.5);
+}
+
+.image{
+  position: relative;
+  bottom: 230px;
+  left: 250px;
 }
