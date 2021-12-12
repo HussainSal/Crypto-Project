@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import classes from "./LoggedinNav.module.css";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
@@ -24,7 +24,7 @@ const useStyles = makeStyles({
 });
 
 const LoggedinNavigation = () => {
-  const [name , setName] = useState();
+  const [name, setName] = useState();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -40,30 +40,23 @@ const LoggedinNavigation = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
       setName(user.displayName);
-   
     } else {
-   
     }
   });
 
   const user = auth.currentUser;
-if (user !== null) {
-  // The user object has basic properties such as display name, email, etc.
-  const displayName = user.displayName;
-
-
-  console.log(displayName)
-
-}
-
-  
+  if (user !== null) {
+    // The user object has basic properties such as display name, email, etc.
+    // const displayName = user.displayName;
+    // console.log(displayName);
+  }
 
   const logoutHandler = () => {
     dispatch(loginAction.loggedout());
 
     signOut(auth)
       .then(() => {
-        console.log("signout");
+        // console.log("signout");
         // Sign-out successful.
       })
       .catch((error) => {
@@ -74,7 +67,7 @@ if (user !== null) {
   return (
     <div className={classes.navigation}>
       <div className={classes.buttons}>
-        {<img className={classes.logo} src={logo}  alt='' />}
+        {<img className={classes.logo} src={logo} alt="" />}
 
         <Button className={sty.bttns}>Markets</Button>
         <Button className={sty.bttns}> Trade </Button>
@@ -119,7 +112,7 @@ if (user !== null) {
   );
 };
 
-export default React.memo(LoggedinNavigation) ;
+export default React.memo(LoggedinNavigation);
 /*
 
 */

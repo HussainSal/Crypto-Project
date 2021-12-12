@@ -2,6 +2,8 @@
   background-color: rgba(0, 0, 0, 0.2);
   height: 100rem;
   width: 140rem;
+  /* margin: auto; */
+  /* margin-right: 50px; */
   backdrop-filter: blur(4px);
   position: fixed;
   z-index: 10000;
@@ -23,7 +25,11 @@
 
   background-color: #3c1161;
   border-radius: 25px;
-  margin: 8rem 0rem 2rem 30rem;
+  /* margin: auto; */
+  margin-top: 8rem;
+  left: 5%;
+  transform: translateX(-50%);
+  margin: 8rem 0rem 2rem 45rem;
 }
 
 .input {
@@ -63,6 +69,6 @@
   box-shadow: 0rem 0.4rem 0.8rem rgba(0, 0, 0, 0.5);
 }
 
-.googleContainer{
+.googleContainer {
   margin-top: 25px;
 }

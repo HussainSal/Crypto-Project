@@ -2,10 +2,8 @@ import classes from "./Page2.module.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { makeStyles, Button, Typography } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 import { apiDataAction } from "../../Store/Index";
-
-import Loading from "../Loading/Loading";
 
 import { Table } from "@material-ui/core";
 import { TableBody } from "@material-ui/core";
@@ -15,11 +13,11 @@ import { TableHead } from "@material-ui/core";
 import { TableRow } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
 
-const useStyle = makeStyles({
-  gridItem: {
-    textAlign: "center",
-  },
-});
+// const useStyle = makeStyles({
+//   gridItem: {
+//     textAlign: "center",
+//   },
+// });
 
 const Page2 = (props) => {
   const dispatch = useDispatch();
@@ -71,91 +69,106 @@ const Page2 = (props) => {
         setError(true);
       });
     setLoading(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <section id='market' className={classes.box}>
+    <section id="market" className={classes.box}>
       <div className={classes.container}>
         <TableContainer
           style={{ backgroundColor: "#3C1161" }}
           component={Paper}
         >
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell style={{ color: "#FFFFFF" }}>NAME</TableCell>
-                <TableCell style={{ color: "#FFFFFF" }} align="right">
-                  PRICE
-                </TableCell>
-                <TableCell style={{ color: "#FFFFFF" }} align="right">
-                  24H CHANGE
-                </TableCell>
-                <TableCell style={{ color: "#FFFFFF" }} align="right">
-                  24H PRICE CHANGE{" "}
-                </TableCell>
-                <TableCell style={{ color: "#FFFFFF" }} align="right">
-                  TRADE
-                </TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {coin &&
-                coin.map((row) => (
-                  <TableRow
-                    key={row.name}
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  >
-                    <TableCell
-                      style={{ color: "#FFFFFF" }}
-                      component="th"
-                      scope="row"
+          {!loading && !error && (
+            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell style={{ color: "#FFFFFF" }}>NAME</TableCell>
+                  <TableCell style={{ color: "#FFFFFF" }} align="right">
+                    PRICE
+                  </TableCell>
+                  <TableCell style={{ color: "#FFFFFF" }} align="right">
+                    24H CHANGE
+                  </TableCell>
+                  <TableCell style={{ color: "#FFFFFF" }} align="right">
+                    24H PRICE CHANGE{" "}
+                  </TableCell>
+                  <TableCell style={{ color: "#FFFFFF" }} align="right">
+                    TRADE
+                  </TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {coin &&
+                  coin.map((row) => (
+                    <TableRow
+                      key={row.name}
+                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                     >
-                      <div className={classes.nameContainer}>
-                        <img width="40px" height="40px" src={row.image} alt='' />
-                        <div className={classes.nameSubcontainer}>
-                          <Typography style={{ textTransform: "uppercase" }}>
-                            <b> {row.symbol} </b>{" "}
-                          </Typography>
-                          <Typography
-                            style={{ color: "rgba(204, 197, 197, 0.829)" }}
-                          >
-                            {row.name}
-                          </Typography>
+                      <TableCell
+                        style={{ color: "#FFFFFF" }}
+                        component="th"
+                        scope="row"
+                      >
+                        <div className={classes.nameContainer}>
+                          <img
+                            width="40px"
+                            height="40px"
+                            src={row.image}
+                            alt=""
+                          />
+                          <div className={classes.nameSubcontainer}>
+                            <Typography style={{ textTransform: "uppercase" }}>
+                              <b> {row.symbol} </b>{" "}
+                            </Typography>
+                            <Typography
+                              style={{ color: "rgba(204, 197, 197, 0.829)" }}
+                            >
+                              {row.name}
+                            </Typography>
+                          </div>
                         </div>
-                      </div>
-                    </TableCell>
-                    <TableCell style={{ color: "#FFFFFF" }} align="right">
-                      {row.current_price}
-                    </TableCell>
-                    <TableCell
-                      style={{
-                        color:
-                          row.price_change_percentage_24h > 0
-                            ? `#25B196`
-                            : `#CD1818`,
-                      }}
-                      align="right"
-                    >
-                      {row.price_change_percentage_24h}
-                    </TableCell>
-                    <TableCell style={{ color: "#FFFFFF" }} align="right">
-                      {row.price_change_24h}
-                    </TableCell>
-                    <TableCell style={{ color: "#FFFFFF" }} align="right">
-                      {
-                        <Button
-                          onClick={()=> alert('Trading is only allowed if user is logged in')}
-                          style={{ backgroundColor: "#25B196", color: "white" }}
-                        >
-                          {" "}
-                          buy{" "}
-                        </Button>
-                      }
-                    </TableCell>
-                  </TableRow>
-                ))}
-            </TableBody>
-          </Table>
+                      </TableCell>
+                      <TableCell style={{ color: "#FFFFFF" }} align="right">
+                        {row.current_price}
+                      </TableCell>
+                      <TableCell
+                        style={{
+                          color:
+                            row.price_change_percentage_24h > 0
+                              ? `#25B196`
+                              : `#CD1818`,
+                        }}
+                        align="right"
+                      >
+                        {row.price_change_percentage_24h}
+                      </TableCell>
+                      <TableCell style={{ color: "#FFFFFF" }} align="right">
+                        {row.price_change_24h}
+                      </TableCell>
+                      <TableCell style={{ color: "#FFFFFF" }} align="right">
+                        {
+                          <Button
+                            onClick={() =>
+                              alert(
+                                "Trading is only allowed if user is logged in"
+                              )
+                            }
+                            style={{
+                              backgroundColor: "#25B196",
+                              color: "white",
+                            }}
+                          >
+                            {" "}
+                            buy{" "}
+                          </Button>
+                        }
+                      </TableCell>
+                    </TableRow>
+                  ))}
+              </TableBody>
+            </Table>
+          )}
         </TableContainer>
       </div>
     </section>

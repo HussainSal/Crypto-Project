@@ -1,5 +1,5 @@
 .overlay {
-  background-color: rgba(0,0,0,.2);
+  background-color: rgba(0, 0, 0, 0.2);
   height: 100rem;
   width: 140rem;
   backdrop-filter: blur(4px);
@@ -7,7 +7,7 @@
   z-index: 10000;
 }
 
-.loading{
+.loading {
   color: white;
 }
 
@@ -23,7 +23,7 @@
 
   background-color: #3c1161;
   border-radius: 25px;
-  margin: 4rem 0rem 2rem 30rem;
+  margin: 4rem 0rem 2rem 35rem;
 }
 
 .input {
@@ -63,6 +63,6 @@
   box-shadow: 0rem 0.4rem 0.8rem rgba(0, 0, 0, 0.5);
 }
 
-.googleContainer{
+.googleContainer {
   margin-top: 25px;
 }

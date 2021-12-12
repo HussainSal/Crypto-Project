@@ -1,14 +1,9 @@
 import classes from "./DetailItem.module.css";
-import { useDispatch } from "react-redux";
 
-
-const DetailItem = (props) => {
-
-
-
+const DetailItem = () => {
   return (
     <div className={classes.overlay}>
-      <form className={classes.form} >
+      <form className={classes.form}>
         <input
           className={classes.input}
           type="email"
@@ -24,9 +19,8 @@ const DetailItem = (props) => {
         <button className={`${classes.bttn} ${classes.signup}`}>Login</button>
         <button className={`${classes.bttn} ${classes.signup}`}>Close</button>
       </form>
-      </div>
+    </div>
   );
 };
-
 
 export default DetailItem;
