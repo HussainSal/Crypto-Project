@@ -2,11 +2,15 @@ import classes from "./Login.module.css";
 import { useDispatch } from "react-redux";
 import { authActions } from "../Store/Index";
 import { loginAction } from "../Store/Index";
-import { useState, useRef} from "react";
-import {  signInWithEmailAndPassword,GoogleAuthProvider,signInWithPopup } from "firebase/auth";
+import { useState, useRef } from "react";
+import {
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 import { auth } from "..";
 import GoogleButton from "react-google-button";
-import {  Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -19,17 +23,16 @@ const Login = () => {
     dispatch(authActions.logout());
   };
 
-  
   const googleProvider = new GoogleAuthProvider();
 
-  const signInWithGoogle = ()=>{
-    signInWithPopup(auth, googleProvider).then(res => {
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, googleProvider).then((res) => {
       // console.log(user);
       closeHandler();
-      signDispatch(loginAction.loggedIn())
-      alert(`welcome ${res.user.displayName}`)
-    })
-  }
+      signDispatch(loginAction.loggedIn());
+      alert(`welcome ${res.user.displayName}`);
+    });
+  };
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -62,59 +65,62 @@ const Login = () => {
         alert(errorMessage || "Invalid Credentials");
       });
 
-
-
     emailRef.current.value = "";
     passwordRef.current.value = "";
     setLoading(false);
-  
 
     dispatch(authActions.logout());
   };
 
   return (
     <div className={classes.overlay}>
-      <form className={classes.form} onSubmit={submitHandler}>
-        <input
-          className={classes.input}
-          type="email"
-          placeholder="test@gmail.com"
-          required
-          ref={emailRef}
-        />
-
-        <input
-          className={classes.input}
-          type="password"
-          placeholder="Enter Password"
-          required
-          ref={passwordRef}
-        />
-
-        {!loading && (
-          <button className={`${classes.bttn} ${classes.signup}`}>Login</button>
-        )}
-
-        {!loading && (
-          <button
-            onClick={closeHandler}
-            className={`${classes.bttn} ${classes.signup}`}
-          >
-            Close
-          </button>
-        )}
-
-        <Typography style={{color:'#FFF',marginTop:'20px'}}> OR </Typography>
-        <div className={classes.googleContainer}>
-
-          <GoogleButton
-            style={{ width: "100%", outline: "none" }}
-            onClick={signInWithGoogle}
+      <div className={classes.formContainer}>
+        <form className={classes.form} onSubmit={submitHandler}>
+          <input
+            className={classes.input}
+            type="email"
+            placeholder="test@gmail.com"
+            required
+            ref={emailRef}
           />
-        </div>
 
-        {loading && <p className={classes.loading}>Loading...</p>}
-      </form>
+          <input
+            className={classes.input}
+            type="password"
+            placeholder="Enter Password"
+            required
+            ref={passwordRef}
+          />
+
+          {!loading && (
+            <button className={`${classes.bttn} ${classes.signup}`}>
+              Login
+            </button>
+          )}
+
+          {!loading && (
+            <button
+              onClick={closeHandler}
+              className={`${classes.bttn} ${classes.signup}`}
+            >
+              Close
+            </button>
+          )}
+
+          <Typography style={{ color: "#FFF", marginTop: "20px" }}>
+            {" "}
+            OR{" "}
+          </Typography>
+          <div className={classes.googleContainer}>
+            <GoogleButton
+              style={{ width: "100%", outline: "none" }}
+              onClick={signInWithGoogle}
+            />
+          </div>
+
+          {loading && <p className={classes.loading}>Loading...</p>}
+        </form>
+      </div>
     </div>
   );
 };
